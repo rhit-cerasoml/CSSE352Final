@@ -2460,7 +2460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lengthOfDay: 120
   dayColor: {r: 0.30196083, g: 0.7754647, b: 1, a: 1}
-  nightColor: {r: 0.09019608, g: 0, b: 0.28235295, a: 0}
+  nightColor: {r: 0.039177172, g: 0, b: 0.122641504, a: 0}
   nutCountText: {fileID: 1634345268}
   capacityText: {fileID: 1123671705}
 --- !u!4 &2017043159
