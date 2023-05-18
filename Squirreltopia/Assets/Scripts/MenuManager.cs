@@ -21,7 +21,9 @@ public class MenuManager : Singleton<MenuManager> {
         }
         if(id >= 0 && id != activeMenu){
             menus[id].SetActive(true);
+            activeMenu = id;
+        }else{
+            activeMenu = -1;
         }
-        activeMenu = id;
     }
 }
