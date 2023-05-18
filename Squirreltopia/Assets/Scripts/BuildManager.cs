@@ -35,4 +35,14 @@ public class BuildManager : Singleton<BuildManager> {
             Debug.Log(worldPosition);
         }
     }
+
+    public float GetMaxCameraHeight(){
+        return 15;
+    }
+    public float GetMaxCameraLeft(){
+        return -15;
+    }
+    public float GetMaxCameraRight(){
+        return 15;
+    }
 }

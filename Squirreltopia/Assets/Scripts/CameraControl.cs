@@ -6,6 +6,8 @@ public class CameraControl : MonoBehaviour {
 
     [SerializeField] public float speed;
 
+    [SerializeField] public float cameraBottom;
+
     // Start is called before the first frame update
     void Start() {
         
@@ -20,8 +22,8 @@ public class CameraControl : MonoBehaviour {
         delta.Normalize();
         delta *= mag * speed * Time.deltaTime;
         transform.position = new Vector3(
-            transform.position.x + delta.x,
-            transform.position.y + delta.y,
+            Mathf.Clamp(transform.position.x + delta.x, BuildManager.Instance.GetMaxCameraLeft(), BuildManager.Instance.GetMaxCameraRight()),
+            Mathf.Clamp(transform.position.y + delta.y, cameraBottom, BuildManager.Instance.GetMaxCameraHeight()),
             transform.position.z
         );
         

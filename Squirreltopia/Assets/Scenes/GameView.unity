@@ -670,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  cameraBottom: -15
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2457,6 +2458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55687fbb884b294fb71139be8a85199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lengthOfDay: 120
+  dayColor: {r: 0.30196083, g: 0.7754647, b: 1, a: 1}
+  nightColor: {r: 0.09019608, g: 0, b: 0.28235295, a: 0}
   nutCountText: {fileID: 1634345268}
   capacityText: {fileID: 1123671705}
 --- !u!4 &2017043159

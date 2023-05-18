@@ -5,8 +5,14 @@ using TMPro;
 
 public class GameManager : MonoBehaviour {
 
+    [SerializeField] public float lengthOfDay;
+    [SerializeField] public Color dayColor;
+    [SerializeField] public Color nightColor;
+    private float time_of_day = 0;
+    
     [SerializeField] public GameObject nutCountText;
     [SerializeField] public GameObject capacityText;
+    
 
     private int nut_count;
     private int squirrel_count;
@@ -50,7 +56,13 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        
+        time_of_day += Time.deltaTime / lengthOfDay;
+        time_of_day %= 1;
+        Camera.main.backgroundColor = Color.Lerp(nightColor, dayColor, Cycle(time_of_day));
+    }
+
+    private float Cycle(float input){
+        return (Mathf.Sin(Mathf.PI * 2.0f * input) + 1.0f) / 2.0f;
     }
 
 

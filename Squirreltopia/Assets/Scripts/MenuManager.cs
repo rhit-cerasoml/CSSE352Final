@@ -17,10 +17,11 @@ public class MenuManager : Singleton<MenuManager> {
 
     public void ChangeMenu(int id){
         for(int i = 0; i < menus.Length; i++){
-            menus[i].active = false;
+            menus[i].SetActive(false);
         }
-        if(id >= 0){
-            menus[id].active = true;
+        if(id >= 0 && id != activeMenu){
+            menus[id].SetActive(true);
         }
+        activeMenu = id;
     }
 }
