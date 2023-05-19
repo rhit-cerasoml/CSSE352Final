@@ -266,7 +266,7 @@ MonoBehaviour:
   height: 3
   width: 9
   cost: 150
-  jobID: 2
+  jobID: 1
   housingBuff: 0
   jobCount: 6
   storageBuff: 200

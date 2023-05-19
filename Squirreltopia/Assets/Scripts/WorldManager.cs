@@ -12,7 +12,7 @@ public class WorldManager : Singleton<WorldManager> {
 
     [SerializeField] public GameObject squirrelPrefab;
     private List<SquirrelAI> squirrelControllers;
-    private List<Room> rooms;
+    private List<Job> jobs;
     
     [SerializeField] public GameObject nutCountText;
     [SerializeField] public GameObject housingText;
@@ -72,12 +72,20 @@ public class WorldManager : Singleton<WorldManager> {
         }
     }
 
+    public void AddRecruitCredit(float amt){
+        recruitmentCredit+=amt;
+    }
+
     public int level;
     public void SetLevel(int new_level){
         level = new_level;
         for(int i = 0; i < levelDependents.Length; i++){
             levelDependents[i].GetComponent<LevelDependency>().SendLevelUpdate(level);
         }
+    }
+
+    public void ListJob(Job j){
+        jobs.Add(j);
     }
 
     public void AddBuff(int storageBuff, int housingBuff){
@@ -89,12 +97,12 @@ public class WorldManager : Singleton<WorldManager> {
     // Start is called before the first frame update
     void Start() {
         nuts = 30;
-        nutCap = 30;
+        nutCap = 0;
         squirrels = 0;
         squirrelCap = 0;
         SetLevel(0);
         squirrelControllers = new List<SquirrelAI>();
-        rooms = new List<Room>();
+        jobs = new List<Job>();
     }
 
     // Update is called once per frame
@@ -107,6 +115,20 @@ public class WorldManager : Singleton<WorldManager> {
             }
             Camera.main.backgroundColor = Color.Lerp(nightColor, dayColor, Cycle(time_of_day));
         }
+    }
+
+    public bool FullHousing(){
+        return squirrel_count == squirrel_cap;
+    }
+
+    public Job GrabJob(){
+        foreach(Job job in jobs) {
+            Debug.Log(FullHousing() + " " + job.IsAvailable());
+            if(job.IsAvailable()) {
+                return job;
+            }
+        }
+        return null;
     }
 
     private float Cycle(float input){

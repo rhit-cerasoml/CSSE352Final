@@ -13,7 +13,6 @@ public class RoomTemplate : MonoBehaviour {
     [SerializeField] public int housingBuff;
     [SerializeField] public int jobCount;
     [SerializeField] public int storageBuff;
-    [SerializeField] public GameObject jobProvider;
 
 
     public Room MakeRoom(int px, int py){
@@ -22,6 +21,9 @@ public class RoomTemplate : MonoBehaviour {
             if(jobID != -1){
                 for(int i = 0; i < jobCount; i++){
                     // ADD JOBS
+                    if(jobID == 0){
+                        WorldManager.Instance.ListJob(new Recruiter(px, py, width));
+                    }
                 }
             }
 
