@@ -24,6 +24,9 @@ public class RoomTemplate : MonoBehaviour {
                     if(jobID == 0){
                         WorldManager.Instance.ListJob(new Recruiter(px, py, width));
                     }
+                    if(jobID == 1){
+                        WorldManager.Instance.ListJob(new Collector(px, py, width));
+                    }
                 }
             }
 

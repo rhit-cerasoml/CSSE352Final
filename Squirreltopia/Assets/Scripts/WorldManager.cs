@@ -64,11 +64,20 @@ public class WorldManager : Singleton<WorldManager> {
     public float recruitmentCredit = 1.0f;
     
     private void ApplyRecruit() {
-        while(recruitmentCredit > 0 && squirrel_count < squirrel_cap){
+        while(recruitmentCredit >= 1 && squirrel_count < squirrel_cap){
             GameObject new_squirrel = Instantiate(squirrelPrefab);
             squirrelControllers.Add(new_squirrel.GetComponent<SquirrelAI>());
             squirrels++;
             recruitmentCredit--;
+        }
+    }
+
+    public void SafeAddNuts(int amt){
+        int old = nut_count;
+        if(nut_count + amt > nut_cap){
+            nuts = Mathf.Max(nuts, nut_cap);
+        }else{
+            nuts += amt;
         }
     }
 
@@ -96,7 +105,7 @@ public class WorldManager : Singleton<WorldManager> {
 
     // Start is called before the first frame update
     void Start() {
-        nuts = 30;
+        nut_count = 40;
         nutCap = 0;
         squirrels = 0;
         squirrelCap = 0;
@@ -119,6 +128,10 @@ public class WorldManager : Singleton<WorldManager> {
 
     public bool FullHousing(){
         return squirrel_count == squirrel_cap;
+    }
+
+    public bool FullBank(){
+        return nut_count >= nut_cap;
     }
 
     public Job GrabJob(){

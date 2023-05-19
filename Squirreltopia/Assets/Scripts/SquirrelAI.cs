@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SquirrelAI : MonoBehaviour {
+    [SerializeField] public float speed;
     private Job current_job;
     void Start() {
         
