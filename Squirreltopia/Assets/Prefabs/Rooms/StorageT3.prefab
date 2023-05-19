@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 3
   width: 9
+  cost: 150
 --- !u!1 &814939539274995421
 GameObject:
   m_ObjectHideFlags: 0

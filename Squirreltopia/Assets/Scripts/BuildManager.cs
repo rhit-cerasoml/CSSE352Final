@@ -15,6 +15,8 @@ public class BuildManager : Singleton<BuildManager> {
     GameObject _tree;
 
     private int buildTop = 3;
+    private int leftExtent = 0;
+    private int rightExtent = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -30,8 +32,6 @@ public class BuildManager : Singleton<BuildManager> {
         room_template.Stamp(0, 0, _tree.transform.GetChild(0));
         room_template.Stamp(0, 3, _tree.transform.GetChild(0));
         room_template.Stamp(0, 6, _tree.transform.GetChild(0));
-
-        ShowPreview(2);
     }
     
     public void Cleanup() {
@@ -40,29 +40,38 @@ public class BuildManager : Singleton<BuildManager> {
 
     // Update is called once per frame
     void Update() {
-
-        if(preview_active){
-            if(build_room_id == -1){
-                HidePreview();
+        if(!WorldManager.Instance.paused){
+            if(preview_active){
+                if(build_room_id == -1){
+                    HidePreview();
+                }
+                SnapPreview();
+                ColorPreview();
+            }else{
+                ShowPreview(0);
             }
-            SnapPreview();
-            ColorPreview();
-        }
 
-        if(!WorldManager.Instance.paused && Input.GetMouseButtonDown(0)) {
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(worldPosition);
+            if(preview_active){
+                if(Input.GetKey("space") || Input.GetMouseButtonDown(1)){
+                    HidePreview();
+                }
+                if(Input.GetMouseButtonDown(0)) {
+                    TryPlaceBuilding();
+                }
+            }
+        }else{
+            HidePreview();
         }
     }
 
     public float GetMaxCameraHeight(){
-        return 5 * buildTop;
+        return 6 + 3 * buildTop;
     }
     public float GetMaxCameraLeft(){
-        return -15;
+        return - (15 + leftExtent);
     }
     public float GetMaxCameraRight(){
-        return 15;
+        return (15 + rightExtent);
     }
 
     private bool preview_active = true;
@@ -76,6 +85,8 @@ public class BuildManager : Singleton<BuildManager> {
         if(build_room_id != -1){
             transform.GetChild(0).gameObject.SetActive(true);
             preview_active = true;
+        }else{
+            HidePreview();
         }
     }
     public void HidePreview(){
@@ -118,6 +129,24 @@ public class BuildManager : Singleton<BuildManager> {
                               map.HasTile(new Vector3Int(px + RT.width, py + 2, 0));
         return  valid_neighbor && RT.CanStamp(px, py, _tree.transform.GetChild(0)) && py / 3 >= 2 && py / 3 < buildTop;
     }
-    
+    private void TryPlaceBuilding(){
+        if(CanPlaceOnPreview()){
+            RoomTemplate RT = roomPrefabs[build_room_id].GetComponent<RoomTemplate>();
+            if(WorldManager.Instance.TrySpendNuts(RT.cost)){
+                RT.Stamp(px, py, _tree.transform.GetChild(0));
+                if(py / 3 == buildTop - 1){
+                    trunkRoom.GetComponent<RoomTemplate>().Stamp(0, buildTop * 3, _tree.transform.GetChild(0));
+                    
+                    buildTop++;
+                }
+                if(px < leftExtent){
+                    leftExtent = px;
+                }
+                if(px + RT.width > rightExtent){
+                    rightExtent = px + RT.width;
+                }
+            }
+        }
+    }
 
 }

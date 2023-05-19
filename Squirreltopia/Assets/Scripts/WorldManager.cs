@@ -78,7 +78,6 @@ public class WorldManager : Singleton<WorldManager> {
         return (Mathf.Sin(Mathf.PI * 2.0f * input) + 1.0f) / 2.0f;
     }
 
-
     public bool paused = false;
     public void PauseGame(){
         paused = true;
@@ -86,6 +85,14 @@ public class WorldManager : Singleton<WorldManager> {
 
     public void ResumeGame(){
         paused = false;
+    }
+
+    public bool TrySpendNuts(int value){
+        if(nuts >= value){
+            nuts -= value;
+            return true;
+        }
+        return false;
     }
 
 }

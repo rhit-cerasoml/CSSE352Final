@@ -7,6 +7,7 @@ public class RoomTemplate : MonoBehaviour {
 
     [SerializeField] public int height;
     [SerializeField] public int width;
+    [SerializeField] public int cost;
 
     public void Stamp(int x_offset, int y_offset, Transform destination){
         Transform grid = transform.GetChild(0);
