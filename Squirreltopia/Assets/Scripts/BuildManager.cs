@@ -40,9 +40,6 @@ public class BuildManager : Singleton<BuildManager> {
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKeyDown(KeyCode.P)){
-            ShowPreview(0);
-        }
         if(!WorldManager.Instance.paused){
             if(preview_active){
                 if(build_room_id == -1){

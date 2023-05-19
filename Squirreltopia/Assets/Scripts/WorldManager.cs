@@ -56,6 +56,10 @@ public class WorldManager : Singleton<WorldManager> {
     }
 
 
+    public int recruitmentFactor = 0;
+    
+    public 
+
 
     // Start is called before the first frame update
     void Start() {
