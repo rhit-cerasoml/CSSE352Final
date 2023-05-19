@@ -11,19 +11,29 @@ public class WorldManager : Singleton<WorldManager> {
     private float time_of_day = 0;
     
     [SerializeField] public GameObject nutCountText;
-    [SerializeField] public GameObject capacityText;
+    [SerializeField] public GameObject housingText;
     
 
     private int nut_count;
+    private int nut_cap;
     private int squirrel_count;
-    private int squirrel_max_count;
+    private int squirrel_cap;
     public int nuts {
         get{
             return nut_count;
         }
         set{
             nut_count = value;
-            nutCountText.GetComponent<TMP_Text>().text = nut_count.ToString();    
+            nutCountText.GetComponent<TMP_Text>().text = nut_count.ToString() + "/" + nut_cap.ToString();    
+        }
+    }
+    public int nutCap {
+        get{
+            return nut_cap;
+        }
+        set{
+            nut_cap = value;
+            nutCountText.GetComponent<TMP_Text>().text = nut_count.ToString() + "/" + nut_cap.ToString();    
         }
     }
     public int squirrels {
@@ -32,16 +42,16 @@ public class WorldManager : Singleton<WorldManager> {
         }
         set{
             squirrel_count = value;
-            capacityText.GetComponent<TMP_Text>().text = squirrel_count.ToString() + "/" + squirrel_max_count.ToString();    
+            housingText.GetComponent<TMP_Text>().text = squirrel_count.ToString() + "/" + squirrel_cap.ToString();    
         }
     }
-    public int capacity {
+    public int squirrelCap {
         get{
-            return squirrel_max_count;
+            return squirrel_cap;
         }
         set{
-            squirrel_max_count = value;
-            capacityText.GetComponent<TMP_Text>().text = squirrel_count.ToString() + "/" + squirrel_max_count.ToString();    
+            squirrel_cap = value;
+            housingText.GetComponent<TMP_Text>().text = squirrel_count.ToString() + "/" + squirrel_cap.ToString();    
         }
     }
 
@@ -49,9 +59,10 @@ public class WorldManager : Singleton<WorldManager> {
 
     // Start is called before the first frame update
     void Start() {
-        nuts = 10;
-        squirrels = 5;
-        capacity = 10;
+        nuts = 30;
+        nutCap = 30;
+        squirrels = 0;
+        squirrelCap = 0;
     }
 
     // Update is called once per frame
