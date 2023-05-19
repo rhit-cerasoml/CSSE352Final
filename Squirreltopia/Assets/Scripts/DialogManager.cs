@@ -20,8 +20,19 @@ public class DialogManager : Singleton<DialogManager> {
         textObject.transform.parent.gameObject.SetActive(false);
 
         Debug.Log("Printing");
+    }
 
-        ShowDialog("Test! Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!Test!", 3);
+    public void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !has_printed)
+        {
+            SkipDialog();
+        }
+
+        else if (Input.GetMouseButtonDown(0) && has_printed)
+        {
+            textObject.transform.parent.gameObject.SetActive(false);
+        }
     }
 
     public void ShowDialog(string s, float t) {
