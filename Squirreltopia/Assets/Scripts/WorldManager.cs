@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class WorldManager : MonoBehaviour {
+public class WorldManager : Singleton<WorldManager> {
 
     [SerializeField] public float lengthOfDay;
     [SerializeField] public Color dayColor;
@@ -56,14 +56,25 @@ public class WorldManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        time_of_day += Time.deltaTime / lengthOfDay;
-        time_of_day %= 1;
-        Camera.main.backgroundColor = Color.Lerp(nightColor, dayColor, Cycle(time_of_day));
+        if(!paused){
+            time_of_day += Time.deltaTime / lengthOfDay;
+            time_of_day %= 1;
+            Camera.main.backgroundColor = Color.Lerp(nightColor, dayColor, Cycle(time_of_day));
+        }
     }
 
     private float Cycle(float input){
         return (Mathf.Sin(Mathf.PI * 2.0f * input) + 1.0f) / 2.0f;
     }
 
+
+    public bool paused = false;
+    public void PauseGame(){
+        paused = true;
+    }
+
+    public void ResumeGame(){
+        paused = false;
+    }
 
 }

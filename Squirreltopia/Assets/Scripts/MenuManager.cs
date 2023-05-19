@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuManager : Singleton<MenuManager> {
 
     [SerializeField] public GameObject[] menus;
+    [SerializeField] public GameObject buttonGroup;
     private int activeMenu = -1;
 
     void Start() {
@@ -25,5 +26,14 @@ public class MenuManager : Singleton<MenuManager> {
         }else{
             activeMenu = -1;
         }
+    }
+
+    public void HideMenu(){
+        ChangeMenu(-1);
+        buttonGroup.SetActive(false);
+    }
+
+    public void ShowMenu(){
+        buttonGroup.SetActive(true);
     }
 }

@@ -22,6 +22,8 @@ public class BuildManager : Singleton<BuildManager> {
         
         RoomTemplate room_template = trunkRoom.transform.GetComponent<RoomTemplate>();
         room_template.Stamp(0, 0, _tree.transform.GetChild(0));
+        room_template.Stamp(0, 3, _tree.transform.GetChild(0));
+        room_template.Stamp(0, 6, _tree.transform.GetChild(0));
     }
     
     public void Cleanup() {
