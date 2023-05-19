@@ -9,6 +9,26 @@ public class RoomTemplate : MonoBehaviour {
     [SerializeField] public int width;
     [SerializeField] public int cost;
 
+    [SerializeField] public int jobID;
+    [SerializeField] public int housingBuff;
+    [SerializeField] public int jobCount;
+    [SerializeField] public int storageBuff;
+    [SerializeField] public GameObject jobProvider;
+
+
+    public Room MakeRoom(int px, int py){
+        Room room = new Room(px, py, width, () => {
+            WorldManager.Instance.AddBuff(storageBuff, housingBuff);
+            if(jobID != -1){
+                for(int i = 0; i < jobCount; i++){
+                    // ADD JOBS
+                }
+            }
+
+        });
+        return room;
+    }
+
     public void Stamp(int x_offset, int y_offset, Transform destination){
         Transform grid = transform.GetChild(0);
         Tilemap foreground = grid.GetChild(0).gameObject.GetComponent<Tilemap>();

@@ -266,6 +266,11 @@ MonoBehaviour:
   height: 3
   width: 3
   cost: 10
+  jobID: 0
+  housingBuff: 0
+  jobCount: 1
+  storageBuff: 0
+  jobProvider: {fileID: 0}
 --- !u!1 &814939539274995421
 GameObject:
   m_ObjectHideFlags: 0

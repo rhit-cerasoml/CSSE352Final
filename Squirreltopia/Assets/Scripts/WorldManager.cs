@@ -9,10 +9,15 @@ public class WorldManager : Singleton<WorldManager> {
     [SerializeField] public Color dayColor;
     [SerializeField] public Color nightColor;
     private float time_of_day = 0;
+
+    [SerializeField] public GameObject squirrelPrefab;
+    private List<SquirrelAI> squirrelControllers;
+    private List<Room> rooms;
     
     [SerializeField] public GameObject nutCountText;
     [SerializeField] public GameObject housingText;
-    
+
+    [SerializeField] public GameObject[] levelDependents;
 
     private int nut_count;
     private int nut_cap;
@@ -56,10 +61,30 @@ public class WorldManager : Singleton<WorldManager> {
     }
 
 
-    public int recruitmentFactor = 0;
+    public float recruitmentCredit = 1.0f;
     
-    public 
+    private void ApplyRecruit() {
+        while(recruitmentCredit > 0 && squirrel_count < squirrel_cap){
+            GameObject new_squirrel = Instantiate(squirrelPrefab);
+            squirrelControllers.Add(new_squirrel.GetComponent<SquirrelAI>());
+            squirrels++;
+            recruitmentCredit--;
+        }
+    }
 
+    public int level;
+    public void SetLevel(int new_level){
+        level = new_level;
+        for(int i = 0; i < levelDependents.Length; i++){
+            levelDependents[i].GetComponent<LevelDependency>().SendLevelUpdate(level);
+        }
+    }
+
+    public void AddBuff(int storageBuff, int housingBuff){
+        Debug.Log("buff " + housingBuff);
+        nutCap += storageBuff;
+        squirrelCap += housingBuff;
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -67,13 +92,19 @@ public class WorldManager : Singleton<WorldManager> {
         nutCap = 30;
         squirrels = 0;
         squirrelCap = 0;
+        SetLevel(0);
+        squirrelControllers = new List<SquirrelAI>();
+        rooms = new List<Room>();
     }
 
     // Update is called once per frame
     void Update() {
         if(!paused){
             time_of_day += Time.deltaTime / lengthOfDay;
-            time_of_day %= 1;
+            if(time_of_day > 1){
+                time_of_day %= 1;
+                ApplyRecruit();
+            }
             Camera.main.backgroundColor = Color.Lerp(nightColor, dayColor, Cycle(time_of_day));
         }
     }

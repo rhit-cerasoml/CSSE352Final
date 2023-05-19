@@ -581,6 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206759702}
+  - component: {fileID: 206759703}
   m_Layer: 5
   m_Name: Recruiting - Menu
   m_TagString: Untagged
@@ -609,6 +610,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &206759703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206759701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86742ebf18388814fb49f45c16166b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels: 0000000002000000
 --- !u!1 &276318652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1186,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 475602670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006312430}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: ShowPreview
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &475602670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2100,7 +2126,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 873704236}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006312430}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: ShowPreview
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &873704236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2221,7 +2259,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 950310597}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006312430}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: ShowPreview
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &950310597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2399,7 +2449,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1078396454}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006312430}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: ShowPreview
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1078396454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2654,7 +2716,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1181671295}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006312430}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: ShowPreview
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1181671295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3043,7 +3117,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1270990396}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006312430}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: ShowPreview
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1270990396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3382,7 +3468,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1382060632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006312430}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: ShowPreview
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1382060632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4382,6 +4480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1755668289}
+  - component: {fileID: 1755668290}
   m_Layer: 5
   m_Name: Storage - Menu
   m_TagString: Untagged
@@ -4411,6 +4510,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1755668290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755668288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86742ebf18388814fb49f45c16166b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels: 000000000100000002000000
 --- !u!1 &1786355487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4569,7 +4681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798290258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: -15, z: 0.5}
   m_LocalScale: {x: 100, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4962,7 +5074,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1925098001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006312430}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: ShowPreview
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1925098001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5010,6 +5134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1981734176}
+  - component: {fileID: 1981734177}
   m_Layer: 5
   m_Name: Housing - Menu
   m_TagString: Untagged
@@ -5039,6 +5164,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1981734177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981734175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86742ebf18388814fb49f45c16166b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels: 000000000100000002000000
 --- !u!1 &2017043157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,12 +5207,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55687fbb884b294fb71139be8a85199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lengthOfDay: 120
+  lengthOfDay: 60
   dayColor: {r: 0.30196083, g: 0.7754647, b: 1, a: 1}
   nightColor: {r: 0.039177172, g: 0, b: 0.122641504, a: 0}
+  squirrelPrefab: {fileID: 8324779017069024090, guid: 8a3c2f7dab127f54192332f368849dfa, type: 3}
   nutCountText: {fileID: 1634345268}
   housingText: {fileID: 1123671705}
-  recruitmentFactor: 0
+  levelDependents:
+  - {fileID: 1755668288}
+  - {fileID: 206759701}
+  - {fileID: 1981734175}
+  recruitmentCredit: 1
+  level: 0
   paused: 0
 --- !u!4 &2017043159
 Transform:

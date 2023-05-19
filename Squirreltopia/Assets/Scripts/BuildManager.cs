@@ -134,6 +134,7 @@ public class BuildManager : Singleton<BuildManager> {
         if(CanPlaceOnPreview()){
             RoomTemplate RT = roomPrefabs[build_room_id].GetComponent<RoomTemplate>();
             if(WorldManager.Instance.TrySpendNuts(RT.cost)){
+                RT.MakeRoom(px, py).apply();
                 RT.Stamp(px, py, _tree.transform.GetChild(0));
                 if(py / 3 == buildTop - 1){
                     trunkRoom.GetComponent<RoomTemplate>().Stamp(0, buildTop * 3, _tree.transform.GetChild(0));
@@ -149,5 +150,4 @@ public class BuildManager : Singleton<BuildManager> {
             }
         }
     }
-
 }
