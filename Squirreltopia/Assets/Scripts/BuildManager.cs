@@ -40,6 +40,9 @@ public class BuildManager : Singleton<BuildManager> {
 
     // Update is called once per frame
     void Update() {
+        if(Input.GetKeyDown(KeyCode.P)){
+            ShowPreview(0);
+        }
         if(!WorldManager.Instance.paused){
             if(preview_active){
                 if(build_room_id == -1){
@@ -47,8 +50,6 @@ public class BuildManager : Singleton<BuildManager> {
                 }
                 SnapPreview();
                 ColorPreview();
-            }else{
-                ShowPreview(0);
             }
 
             if(preview_active){
@@ -57,6 +58,9 @@ public class BuildManager : Singleton<BuildManager> {
                 }
                 if(Input.GetMouseButtonDown(0)) {
                     TryPlaceBuilding();
+                    if(!Input.GetKey("left shift")){
+                        HidePreview();
+                    }
                 }
             }
         }else{
